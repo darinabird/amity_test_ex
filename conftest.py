@@ -14,8 +14,10 @@ sys_info = platform.platform()
 def browser():
     print("initiating chrome driver")
     options = webdriver.ChromeOptions()
+    options.binary_location = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
     options.headless = False
-    driver = webdriver.Chrome(options=options)
+    chrome_driver_binary = "/usr/local/bin/chromedriver"
+    driver = webdriver.Chrome(chrome_driver_binary, chrome_options=options)
     driver.maximize_window()
     driver.implicitly_wait(5)
 
